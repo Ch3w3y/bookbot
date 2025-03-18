@@ -1,6 +1,11 @@
 from stats import count_words
 from stats import char_count
 from stats import sorted_dictionary
+import sys
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 def print_report(path, word_count, sorted_chars):
     print("============ BOOKBOT ============")
@@ -21,7 +26,7 @@ def print_report(path, word_count, sorted_chars):
     print("============= END ===============")
 
 # Read the file and process its contents
-path = "books/frankenstein.txt"
+path = sys.argv[1]
 with open(path) as f:
     text = f.read()
 
